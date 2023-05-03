@@ -23,10 +23,6 @@ form {
   display: flex;
 }
 
-input[type="checkbox"]:checked + span {
-  text-decoration: line-through;
-}
-
 .todo-group {
   display: flex;
   justify-content: center;

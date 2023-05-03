@@ -1,6 +1,8 @@
-const TodoForm = ({ textInput, setTextInput }) => {
-  const handleSubmit = () => {
-    alert(textInput);
+const TodoForm = ({ textInput, setTextInput, addTodo }) => {
+  const handleSubmit = (e) => {
+    // alert(textInput);
+    e.preventDefault();
+    addTodo(textInput);
   };
   const handleChange = (e) => {
     setTextInput(e.target.value);
