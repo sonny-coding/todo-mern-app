@@ -1,15 +1,15 @@
-const TodoForm = ({ todo, setTodo }) => {
+const TodoForm = ({ textInput, setTextInput }) => {
   const handleSubmit = () => {
-    alert(todo);
+    alert(textInput);
   };
   const handleChange = (e) => {
-    setTodo(e.target.value);
+    setTextInput(e.target.value);
   };
   return (
     <form className="todo-form" action="submit" onSubmit={handleSubmit}>
       <input
         type="text"
-        value={todo}
+        value={textInput}
         onChange={handleChange}
         placeholder="todo"
       />

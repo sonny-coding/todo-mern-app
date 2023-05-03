@@ -1,12 +1,16 @@
-const Todo = ({ todo }) => {
+const Todo = ({ todo, id, finished, toggleTodo, deleteTodo }) => {
   return (
     <>
-      <li key={todo}>
+      <li>
         <div className="todo-group">
-          <input type="checkbox" />
-          <p>{todo}</p>
+          <input
+            type="checkbox"
+            checked={finished}
+            onClick={() => toggleTodo(id)}
+          />
+          <p className={finished ? "line-through" : ""}>{todo}</p>
         </div>
-        <button>X</button>
+        <button onClick={() => deleteTodo(id)}>X</button>
       </li>
     </>
   );
