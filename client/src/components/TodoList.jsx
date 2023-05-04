@@ -1,13 +1,14 @@
 import Todo from "./Todo";
 
 const TodoList = ({ todoList, toggleTodo, deleteTodo }) => {
+  console.log(todoList);
   return (
     <ul>
       {todoList.map((todo) => (
         <Todo
-          key={todo.id}
+          key={todo._id}
           todo={todo.task}
-          id={todo.id}
+          id={todo._id}
           finished={todo.finished}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}

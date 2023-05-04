@@ -5,5 +5,5 @@ const TodoSchema = new mongoose.Schema({
   finished: { type: Boolean, required: true },
 });
 
-const TodoModel = mongoose.model("Todo", TodoSchema);
-export default TodoModel;
+const Todo = mongoose.model("Todo", TodoSchema);
+export default Todo;
