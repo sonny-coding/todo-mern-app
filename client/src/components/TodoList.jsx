@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 
-const TodoList = ({ todoList, toggleTodo, deleteTodo }) => {
+const TodoList = ({ todoList, toggleTodo }) => {
   console.log(todoList);
   return (
     <ul>
@@ -11,7 +11,7 @@ const TodoList = ({ todoList, toggleTodo, deleteTodo }) => {
           id={todo._id}
           finished={todo.finished}
           toggleTodo={toggleTodo}
-          deleteTodo={deleteTodo}
+          // deleteTodo={deleteTodo}
         />
       ))}
     </ul>

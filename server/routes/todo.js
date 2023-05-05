@@ -14,7 +14,19 @@ router.route("/").get(async (req, res) => {
     res.status(500).json({ sucess: false, message: error });
   }
 });
-
+// delete a todo
+router.route("/").delete(async (req, res) => {
+  try {
+    const { id } = req.body;
+    const deleteItem = await Todo.findByIdAndDelete(id);
+    if (!deleteItem) {
+      res.status(404).json({ sucess: false, message: "No item found" });
+    }
+    res.status(200).json({ sucess: true, data: deleteItem });
+  } catch (error) {
+    res.status(500).json({ sucess: false, message: error });
+  }
+});
 // create a todo
 router.route("/").post(async (req, res) => {
   try {

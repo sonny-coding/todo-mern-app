@@ -1,10 +1,4 @@
-import { useState } from "react";
-
 const TodoForm = ({ textInput, setTextInput }) => {
-  const [form, setForm] = useState({
-    task: "this is a test",
-    finished: false,
-  });
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (textInput) {

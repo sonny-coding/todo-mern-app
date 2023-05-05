@@ -6,11 +6,9 @@ import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 export default function App() {
   const [todoList, setTodoList] = useState([]);
-
-  // { id: nanoid(), task: "eat dinner", finished: true },
-  //   { id: nanoid(), task: "study", finished: false },
   const [textInput, setTextInput] = useState("");
 
+  //localhost5173
   useEffect(() => {
     const fetchTodos = async () => {
       try {
@@ -37,10 +35,10 @@ export default function App() {
       ...todoList,
     ]);
   };
-  const deleteTodo = (id) => {
-    const newTodoList = todoList.filter((todo) => todo.id !== id);
-    setTodoList(newTodoList);
-  };
+  // const deleteTodo = (id) => {
+  //   const newTodoList = todoList.filter((todo) => todo.id !== id);
+  //   setTodoList(newTodoList);
+  // };
   const toggleTodo = (id) => {
     setTodoList((prevState) =>
       prevState.map((todo) =>
@@ -57,11 +55,7 @@ export default function App() {
         setTextInput={setTextInput}
         addTodo={addTodo}
       />
-      <TodoList
-        todoList={todoList}
-        toggleTodo={toggleTodo}
-        deleteTodo={deleteTodo}
-      />
+      <TodoList todoList={todoList} toggleTodo={toggleTodo} />
     </>
   );
 }
