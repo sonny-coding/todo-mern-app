@@ -14,7 +14,7 @@ const TodoForm = ({ textInput, setTextInput, setRefresh }) => {
         });
         await response.json();
         setRefresh(true);
-        alert("Success");
+        // alert("Success");
       } catch (error) {
         alert(error);
       } finally {

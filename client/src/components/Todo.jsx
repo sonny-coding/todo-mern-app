@@ -1,4 +1,23 @@
-const Todo = ({ todo, id, finished, toggleTodo, setRefresh }) => {
+const Todo = ({ todo, id, finished, setRefresh }) => {
+  const updateTodo = async (id) => {
+    try {
+      const newFinished = !finished;
+      const response = await fetch("http://localhost:8000/api/todo", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id,
+          newFinished,
+        }),
+      });
+      await response.json();
+      setRefresh(true);
+    } catch (error) {
+      alert(error);
+    }
+  };
   const deleteTodo = async (id) => {
     try {
       const response = await fetch("http://localhost:8000/api/todo", {
@@ -12,7 +31,7 @@ const Todo = ({ todo, id, finished, toggleTodo, setRefresh }) => {
       });
       await response.json();
       setRefresh(true);
-      alert("Success");
+      // alert("Success");
     } catch (error) {
       // console.log(error);
       alert(error);
@@ -24,7 +43,7 @@ const Todo = ({ todo, id, finished, toggleTodo, setRefresh }) => {
         <input
           type="checkbox"
           checked={finished}
-          onClick={() => toggleTodo(id)}
+          onClick={() => updateTodo(id)}
         />
         <p className={finished ? "line-through" : ""}>{todo}</p>
       </div>

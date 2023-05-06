@@ -47,5 +47,25 @@ router.route("/").post(async (req, res) => {
     });
   }
 });
+// update a todo
+router.route("/").patch(async (req, res) => {
+  try {
+    const { id, newFinished } = req.body;
+    const todo = await Todo.findOne({ _id: id });
+    console.log(todo);
+    todo.finished = newFinished;
+    await todo.save();
+    res.status(200).json({
+      success: true,
+      data: newTodo,
+    });
+  } catch (error) {
+    // console.log(error);
+    res.status(500).json({
+      success: false,
+      message: error,
+    });
+  }
+});
 
 export default router;
