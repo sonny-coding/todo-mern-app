@@ -1,4 +1,4 @@
-const TodoForm = ({ textInput, setTextInput }) => {
+const TodoForm = ({ textInput, setTextInput, setRefresh }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (textInput) {
@@ -9,10 +9,11 @@ const TodoForm = ({ textInput, setTextInput }) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            task: "123354",
+            task: textInput,
           }),
         });
         await response.json();
+        setRefresh(true);
         alert("Success");
       } catch (error) {
         alert(error);

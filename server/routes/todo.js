@@ -30,13 +30,9 @@ router.route("/").delete(async (req, res) => {
 // create a todo
 router.route("/").post(async (req, res) => {
   try {
-    console.log(`This is req.body ${req.body}`);
-    // const { task, finished } = req.body;
-    // console.log("🚀 ~ file: todo.js:22 ~ router.route ~ finished:", finished);
-    // console.log("🚀 ~ file: todo.js:22 ~ router.route ~ task:", task);
-
+    const { task } = req.body;
     const newTodo = await Todo.create({
-      task: "example",
+      task,
       finished: false,
     });
     console.log(newTodo);

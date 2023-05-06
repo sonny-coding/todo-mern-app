@@ -1,4 +1,4 @@
-const Todo = ({ todo, id, finished, toggleTodo }) => {
+const Todo = ({ todo, id, finished, toggleTodo, setRefresh }) => {
   const deleteTodo = async (id) => {
     try {
       const response = await fetch("http://localhost:8000/api/todo", {
@@ -11,6 +11,7 @@ const Todo = ({ todo, id, finished, toggleTodo }) => {
         }),
       });
       await response.json();
+      setRefresh(true);
       alert("Success");
     } catch (error) {
       // console.log(error);
